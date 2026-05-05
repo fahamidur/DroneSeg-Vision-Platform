@@ -1,0 +1,45 @@
+services:
+  backend:
+    build:
+      context: .
+      target: backend-dev
+    container_name: droneseg-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app/backend
+      - hf-cache:/home/user/.cache/huggingface
+    environment:
+      UPLOAD_DIR: /app/backend/uploads
+      OUTPUT_DIR: /app/backend/outputs
+      DB_PATH: /app/backend/droneseg.db
+      MODEL_ID: nvidia/segformer-b2-finetuned-ade-512-512
+      MAX_UPLOAD_SIZE_MB: 50
+      MAX_INFERENCE_SIDE: 1280
+      CORS_ORIGINS: http://localhost:3000
+      LOAD_MODEL_ON_STARTUP: "true"
+      ENABLE_LLM: "false"
+      OPENAI_API_KEY: ""
+    command: >
+      sh -c "uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload"
+
+  frontend:
+    image: node:20-bookworm
+    container_name: droneseg-frontend
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - node-modules:/app/node_modules
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+      NEXT_PUBLIC_ENABLE_LLM: "false"
+    command: >
+      sh -c "npm install && npm run dev -- --hostname 0.0.0.0"
+    depends_on:
+      - backend
+
+volumes:
+  hf-cache:
+  node-modules:

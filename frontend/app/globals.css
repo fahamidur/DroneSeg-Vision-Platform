@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #eef4f7;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef7fb 0%, #f8fafc 48%, #edfdf6 100%);
+  color: #0f172a;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+.maplibregl-ctrl-attrib {
+  font-size: 10px;
+}

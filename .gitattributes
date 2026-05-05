@@ -1,0 +1,5 @@
+backend/sample_images/*.JPG filter=lfs diff=lfs merge=lfs -text
+backend/sample_images/*.jpg filter=lfs diff=lfs merge=lfs -text
+backend/sample_images/*.jpeg filter=lfs diff=lfs merge=lfs -text
+backend/sample_images/*.png filter=lfs diff=lfs merge=lfs -text
+backend/sample_images/DJI_20260308132419_0061_V.JPG filter=lfs diff=lfs merge=lfs -text
