@@ -1,4 +1,3 @@
-````markdown
 # DroneSeg Vision Platform
 
 DroneSeg Vision Platform is a full-stack drone imagery semantic segmentation application. It allows users to upload or select drone images, view them as georeferenced raster overlays on an OpenStreetMap basemap, run semantic segmentation using SegFormer-B2, inspect detected land-cover classes, view segmentation masks and export detection results as GeoJSON.
