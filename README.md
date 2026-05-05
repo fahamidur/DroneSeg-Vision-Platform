@@ -482,40 +482,6 @@ hf auth login
 hf upload your-username/DroneSeg backend/sample_images backend/sample_images --repo-type space
 ```
 
-## Git Ignore Recommendation
-
-The repository should not include runtime outputs, local databases or temporary files.
-
-Recommended `.gitignore` content:
-
-```gitignore
-.env
-.env.local
-__pycache__/
-*.pyc
-
-backend/uploads/*
-backend/outputs/*
-backend/*.db
-
-frontend/.next/
-frontend/node_modules/
-node_modules/
-
-.DS_Store
-```
-
-Sample images may be tracked if required for submission:
-
-```gitignore
-!backend/sample_images/
-!backend/sample_images/*.JPG
-!backend/sample_images/*.jpg
-!backend/sample_images/*.jpeg
-!backend/sample_images/*.png
-!backend/sample_images/sample_bounds.json
-```
-
 ## Testing the Application
 
 A normal test run should follow this sequence:
@@ -574,11 +540,3 @@ Future development could extend the prototype through more advanced geospatial a
 * Add a dedicated GIS export panel for QGIS and ArcGIS workflows.
 * Add model performance metrics using labelled validation images.
 
-## Summary
-
-DroneSeg Vision Platform demonstrates a complete full-stack semantic segmentation workflow for drone imagery. It combines image upload, OpenStreetMap visualisation, pretrained SegFormer inference, segmentation mask rendering, detection history and GeoJSON export in one deployable web application.
-
-The project shows how computer vision, geospatial mapping and web deployment can be integrated into a practical drone image analysis platform.
-
-```
-```
